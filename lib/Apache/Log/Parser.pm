@@ -94,7 +94,7 @@ sub new {
             ];
         }
         my $part = q{\s*(?:"([^"]*)"|([^\s]+))?};
-        my $common = q{([^\s]*)\s+([^\s]*)\s+([^\s]*)\s+\[(([^: ]+):([^ ]+) ([-+0-9]+))\]\s+"(([^\s]+) ([^\s]+)( ([^\s"]*))?)"\s+([^\s]*)\s+([^\s]*)};
+        my $common = q{([^\s]*)\s+([^\s]*)\s+([^\s]*)\s+\[(([^: ]+):([^ ]+) ([-+0-9]+))\]\s+"(([^\s]+) ([^\s]+)(\s+([^\s"]*))?)"\s+([^\s]*)\s+([^\s]*)};
         my $common_parts = 14;
         my $max_match_parts = reduce {$a > $b ? $a : $b} 0, map {$_->[0]} @{$self->{field_lists}};
         my $regex = $common . ($part x $max_match_parts);
